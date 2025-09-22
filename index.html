@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="Description Description Description">
+  <meta name="keywords" content="Keyword Keyword Keyword Keywords">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tag Title</title>
+  
+  <link rel="icon" href="https://github-production-user-asset-6210df.s3.amazonaws.com/47669167/330728723-7037290e-f474-4d11-b90f-1d8316087bf8.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20240529%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20240529T072300Z&X-Amz-Expires=300&X-Amz-Signature=d12b9e5c3c49a082747f5da55529a4f1247cd17b4329fafc1cb6d1c0678efa77&X-Amz-SignedHeaders=host&actor_id=23737120&key_id=0&repo_id=721995615">
+  
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="assets/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js"></script>
+  <script type="module" src="https://gradio.s3-us-west-2.amazonaws.com/3.35.2/gradio.js"></script>
+</head>
+
+<style>
+  .video-container {
+    display: flex;
+    flex-wrap: wrap;
+    /* 自动换行 */
+    gap: 16px;
+    /* 视频之间的间距 */
+    max-width: 1100px;
+    /* 容器最大宽度，可根据需要调整 */
+    margin: 0 auto;
+    /* 居中 */
+  }
+
+  .video-wrapper {
+    flex: 0 0 calc(33% - 8px);
+    /* 每个视频占宽50%，减去间距的一半 */
+    box-sizing: border-box;
+  }
+
+  .video-title {
+    margin-bottom: 8px;
+    /* 标题和视频之间间距 */
+    font-weight: bold;
+    font-size: 16px;
+    text-align: center;
+  }
+
+  video {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+</style>
+
+<body>
+
+  <!-- 元信息 -->
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <!-- 标题 -->
+            <h1 class="title is-1 publication-title">This is a Title.</h1>
+            <div class="is-size-5 publication-authors">
+              <!-- 作者 -->
+              <span class="author-block">
+                <a href="https://scholar.google.com/" style="color:#f68946;font-weight:normal;">Author A*</a>,
+                <br>
+                <a href="https://scholar.google.com/" style="color:#f68946;font-weight:normal;">Author B</a>,
+                <a href="https://scholar.google.com/" style="color:#f68946;font-weight:normal;">Author C</a>,
+                <br>
+                <a href="https://scholar.google.com/" style="color:#f68946;font-weight:normal;">Author D</a>,
+                <a href="https://scholar.google.com/" style="color:#f68946;font-weight:normal;">Author E</a>,
+              </span>
+              <!-- 机构 -->
+              <div class="is-size-5 publication-authors">
+                <span class="author-block"><b style="color:#008AD7; font-weight:normal">▶ </b> A</span>
+                <br>
+                <span class="author-block"><b style="color:#f68946; font-weight:normal">▶ </b> B</span>
+                <br>
+                <span class="author-block"><b style="color:#17de2e; font-weight:normal">▶ </b> C</span>
+                <div class="is-size-6 publication-authors">
+                  <span class="author-block"><b>*</b> Equal contribution.</span>
+                </div>
+              </div>
+              <!-- 链接图标 -->
+              <div class="column has-text-centered">
+                <div class="publication-links">
+                  <span class="link-block">
+                    <a href="https://arxiv.org/" target="_blank" class="external-link button is-normal is-rounded is-dark">
+                      <span class="icon" style="color:#ffffff">
+                        <i class="ai ai-arxiv"></i>
+                      </span>
+                      <span style="color:#ffffff">arXiv</span>
+                    </a>
+                  </span>
+                  <span class="link-block">
+                    <a href="https://github.com/" target="_blank"
+                      class="external-link button is-normal is-rounded is-dark">
+                      <span class="icon" style="color:#ffffff">
+                        <i class="fab fa-github"></i>
+                      </span>
+                      <span style="color:#ffffff">Code</span>
+                    </a>
+                  </span>
+                  <span class="link-block">
+                    <a href="https://huggingface.co/" target="_blank"
+                      class="external-link button is-normal is-rounded is-dark">
+                      <span class="icon" style="color:#ffffff">
+                        🤗
+                      </span>
+                      <span style="color:#ffffff">Model</span>
+                    </a>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  </section>
+  <!-- 视频+抽象 -->
+  <section class="section" style="background-color:#ffffffff">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-six-fifths">
+          <!-- 演示 -->
+          <div class="columns is-centered has-text-centered">
+            <div class="column is-four-fifths">
+              <h2 class="title is-3">Video</h2>
+              <video id="dollyzoom" autoplay controls muted loop playsinline height="100%">
+                <source src="assets/videos/example.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+          <br>
+          <br>
+          <!-- 抽象 -->
+          <h2 class="title is-3">Abstract</h2>
+          <div class="content has-text-justified">
+            <p>
+              This is a Abstract. This is a Abstract. This is a Abstract. This is a Abstract. This is a Abstract. 
+              This is a Abstract. This is a Abstract. This is a Abstract. This is a Abstract. This is a Abstract. 
+              This is a Abstract. This is a Abstract. This is a Abstract. This is a Abstract. This is a Abstract. 
+              This is a Abstract. This is a Abstract. This is a Abstract. This is a Abstract. This is a Abstract. 
+              This is a Abstract. This is a Abstract. This is a Abstract. This is a Abstract. This is a Abstract. 
+              This is a Abstract. This is a Abstract. This is a Abstract. This is a Abstract. This is a Abstract. 
+              This is a Abstract. This is a Abstract. This is a Abstract. This is a Abstract. This is a Abstract. 
+              This is a Abstract. This is a Abstract. This is a Abstract. This is a Abstract. This is a Abstract. 
+              This is a Abstract. This is a Abstract. This is a Abstract. This is a Abstract. This is a Abstract. 
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- 演示 -->
+  <section class="section" style="background-color:#efeff081">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-six-fifths">
+        <h2 class="title is-3">Demonstrations</h2>
+      </div>
+    </div>
+
+    <div class="container is-max-desktop">
+      <h2 class="title is-4">Manipulation Tasks</h2>
+      <div class="video-container">
+        <div class="video-wrapper">
+          <div class="video-title">Long Horizon (Carrot)</div>
+          <video controls src="assets/videos/example.mp4"></video>
+        </div>
+        <div class="video-wrapper">
+          <div class="video-title">Long Horizon (Pepper)</div>
+          <video controls src="assets/videos/example.mp4"></video>
+        </div>
+      </div>
+
+      <br>
+      <br>
+
+      <div class="container is-max-desktop">
+        <h2 class="title is-4">Locomotion Tasks</h2>
+        <div class="video-container">
+          <div class="video-wrapper">
+            <div class="video-title">Complex Transport</div>
+            <video controls src="assets/videos/example.mp4"></video>
+          </div>
+          <div class="video-wrapper">
+            <div class="video-title">Complex Interaction (Shake)</div>
+            <video controls src="assets/videos/example.mp4"></video>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- 模型架构 -->
+  <section class="section" style="background-color:#ffffffff">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-six-fifths">
+        <h2 class="title is-3">Boundless Architecture</h2>
+      </div>
+    </div>
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column is-full-width">
+          <div class="content has-text-justified">
+            <p>
+              This is a Architecture. This is a Architecture. This is a Architecture. This is a Architecture.
+              This is a Architecture. This is a Architecture. This is a Architecture. This is a Architecture.
+              This is a Architecture.
+              <centering>
+                <div style="text-align: center;">
+                  <img id="pipeline" width="80%" src="assets/images/example.png">
+                </div>
+              </centering>
+              <br>
+              <br>
+              This is a Architecture. This is a Architecture. This is a Architecture. This is a Architecture.
+              This is a Architecture. This is a Architecture. This is a Architecture. This is a Architecture.
+              This is a Architecture.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+  <!-- 数据集 -->
+  <section class="section" style="background-color: #efeff081;">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-six-fifths">
+        <h2 class="title is-3">WhateverDataset-666<i>k</i></h2>
+      </div>
+    </div>
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column is-full-width">
+          <div class="content has-text-justified">
+            <p>
+              Very awesome Dataset.
+              <centering>
+                <div style="text-align: center;">
+                  <img id="pipeline" width="80%" src="assets/images/example.png">
+                </div>
+              </centering>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- 性能 -->
+  <section class="section" style="background-color:#ffffffff">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-six-fifths">
+        <h2 class="title is-3">Performance</h2>
+      </div>
+    </div>
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column is-full-width">
+          <h2 class="title is-4">Ablation Study</h2>
+          <div style="text-align: center;">
+            <img id="ablation" width="70%" src="assets/images/example.png">
+          </div>
+        </div>
+      </div>
+      <div class="columns is-centered">
+        <div class="column is-full-width">
+          <h2 class="title is-4">Multimodal Benchmarks</h2>
+          <div style="text-align: center;">
+            <img id="multimodal" width="70%" src="assets/images/example.png">
+          </div>
+        </div>
+      </div>
+      <div class="columns is-centered">
+        <div class="column is-full-width">
+          <h2 class="title is-4">3D Spatial Benchmarks</h2>
+          <div style="text-align: center;">
+            <img id="spatial" width="70%" src="assets/images/example.png">
+          </div>
+        </div>
+      </div>
+      <div class="columns is-centered">
+        <div class="column is-full-width">
+          <h2 class="title is-4">Real-world Evaluations</h2>
+          <div style="text-align: center;">
+            <img id="legged" width="70%" src="assets/images/example.png">
+            <img id="arm" width="70%" src="assets/images/example.png">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- 引用 -->
+  <section class="section" id="BibTeX" style="background-color:#ffffffff">
+    <div class="container is-max-desktop content">
+      <h2 class="title">Citation</h2>
+      <pre><code>嘻嘻</code></pre>
+    </div>
+  </section>
+  <!-- 致谢 -->
+  <section class="section" id="Acknowledgement">
+    <div class="container is-max-desktop content">
+      <h2 class="title">Acknowledgement</h2>
+      <p>
+        This website is adapted from <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>, licensed under
+        a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+          Commons Attribution-ShareAlike 4.0 International License</a>.
+      </p>
+    </div>
+  </section>
+</body>
+
+</html>
