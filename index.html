@@ -66,27 +66,42 @@
         <div class="columns is-centered">
           <div class="column has-text-centered">
             <!-- 标题 -->
-            <h1 class="title is-1 publication-title">This is a Title.</h1>
+            <h1 class="title is-1 publication-title">BLM<sub>0</sub>: A Boundless Model for Cross-Space, Cross-Task, and Cross-Embodiment Learning</h1>
             <div class="is-size-5 publication-authors">
               <!-- 作者 -->
               <span class="author-block">
-                <a href="https://scholar.google.com/" style="color:#f68946;font-weight:normal;">Author A*</a>,
+                <a href="https://scholar.google.com/" style="color:#f68946;font-weight:normal;">WenTao Tan</a>,
+                <a href="https://scholar.google.com/" style="color:#f68946;font-weight:normal;">Bowen Wang</a>,
+                <a href="https://scholar.google.com/" style="color:#f68946;font-weight:normal;">Heng Zhi</a>,
+                <a href="https://scholar.google.com/" style="color:#f68946;font-weight:normal;">Chenyu Liu</a>,
+                <a href="https://scholar.google.com/" style="color:#f68946;font-weight:normal;">Zhe Li</a>,
+                <a href="https://scholar.google.com/" style="color:#f68946;font-weight:normal;">Jian Liu</a>,
+                <a href="https://scholar.google.com/" style="color:#f68946;font-weight:normal;">Zenrong Lin</a>,
                 <br>
-                <a href="https://scholar.google.com/" style="color:#f68946;font-weight:normal;">Author B</a>,
-                <a href="https://scholar.google.com/" style="color:#f68946;font-weight:normal;">Author C</a>,
+                <a href="https://scholar.google.com/" style="color:#f68946;font-weight:normal;">Yukun Dai</a>,
+                <a href="https://scholar.google.com/" style="color:#f68946;font-weight:normal;">Yipeng Chen</a>,
+                <a href="https://scholar.google.com/" style="color:#f68946;font-weight:normal;">Wenjie Yang</a>,
+                <a href="https://scholar.google.com/" style="color:#f68946;font-weight:normal;">Enci Xie</a>,
+                <a href="https://scholar.google.com/" style="color:#f68946;font-weight:normal;">Hao Xue</a>,
+                <a href="https://scholar.google.com/" style="color:#f68946;font-weight:normal;">Baixu Ji</a>,
+                <a href="https://scholar.google.com/" style="color:#f68946;font-weight:normal;">Chen Xu</a>,
                 <br>
-                <a href="https://scholar.google.com/" style="color:#f68946;font-weight:normal;">Author D</a>,
-                <a href="https://scholar.google.com/" style="color:#f68946;font-weight:normal;">Author E</a>,
+                <a href="https://scholar.google.com/" style="color:#f68946;font-weight:normal;">Zhibin Wang</a>,
+                <a href="https://scholar.google.com/" style="color:#f68946;font-weight:normal;">Tianshi Wang</a>,
+                <a href="https://scholar.google.com/" style="color:#f68946;font-weight:normal;">Lei Zhu<sup>&dagger;&diamond;</sup></a>,
+                <a href="https://scholar.google.com/" style="color:#f68946;font-weight:normal;">Hengtao Shen<sup>&diamond;</sup></a>,
               </span>
               <!-- 机构 -->
               <div class="is-size-5 publication-authors">
-                <span class="author-block"><b style="color:#008AD7; font-weight:normal">▶ </b> A</span>
+                <span class="author-block"><b style="color:#008AD7; font-weight:normal">▶ </b> School of Computer Science and Technology, Tongji University</span>
                 <br>
-                <span class="author-block"><b style="color:#f68946; font-weight:normal">▶ </b> B</span>
-                <br>
-                <span class="author-block"><b style="color:#17de2e; font-weight:normal">▶ </b> C</span>
+                <span class="author-block"><b style="color:#f68946; font-weight:normal">▶ </b> Koala Uran</span>
                 <div class="is-size-6 publication-authors">
                   <span class="author-block"><b>*</b> Equal contribution.</span>
+                  &emsp;
+                  <span class="author-block"><b>&dagger;</b> Project leader.</span>
+                  &emsp;
+                  <span class="author-block"><b>&diamond;</b> Corresponding author.</span>
                 </div>
               </div>
               <!-- 链接图标 -->
@@ -203,7 +218,7 @@
   <section class="section" style="background-color:#ffffffff">
     <div class="columns is-centered has-text-centered">
       <div class="column is-six-fifths">
-        <h2 class="title is-3">Boundless Architecture</h2>
+        <h2 class="title is-3">Model Architecture</h2>
       </div>
     </div>
     <div class="container is-max-desktop">
@@ -211,9 +226,22 @@
         <div class="column is-full-width">
           <div class="content has-text-justified">
             <p>
-              This is a Architecture. This is a Architecture. This is a Architecture. This is a Architecture.
-              This is a Architecture. This is a Architecture. This is a Architecture. This is a Architecture.
-              This is a Architecture.
+              <strong>Backbone.</strong>&emsp;
+              We use the open-source <b>Qwen2.5-VL-7B-Instruct</b> as the MLLM backbone for embodied question answering and reasoning.
+              Given a sequence of video frames and a text prompt, the model outputs response tokens and multimodal hidden states. 
+              We take an intermediate representation from a chosen transformer block as the high-level intent for control.
+              
+              <br>
+              <br>
+              
+              <strong>Robot policy.</strong>&emsp;
+              For continuous robotic control, we use a <em>Diffusion Transformer (DiT)</em> conditioned on that high-level intent.
+              The current proprioceptive state is encoded by a lightweight state encoder.
+              We predict a short-horizon chunk of actions; during training we add noise and embed the actions with a lightweight action encoder.
+              DiT denoises with interleaved self-attention over state and action embeddings, plus cross-attention to the intent.
+              A lightweight action decoder produces the final action chunk for execution.
+              To generalize across embodiments, DiT parameters are shared, while the state/action encoders and decoders remain embodiment-specific.
+
               <centering>
                 <div style="text-align: center;">
                   <img id="pipeline" width="80%" src="assets/images/example.png">
@@ -235,7 +263,7 @@
   <section class="section" style="background-color: #efeff081;">
     <div class="columns is-centered has-text-centered">
       <div class="column is-six-fifths">
-        <h2 class="title is-3">WhateverDataset-666<i>k</i></h2>
+        <h2 class="title is-3">Dataset</h2>
       </div>
     </div>
     <div class="container is-max-desktop">
