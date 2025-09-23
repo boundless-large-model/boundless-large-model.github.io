@@ -162,15 +162,13 @@
           <h2 class="title is-3">Abstract</h2>
           <div class="content has-text-justified">
             <p>
-              This is a Abstract. This is a Abstract. This is a Abstract. This is a Abstract. This is a Abstract. 
-              This is a Abstract. This is a Abstract. This is a Abstract. This is a Abstract. This is a Abstract. 
-              This is a Abstract. This is a Abstract. This is a Abstract. This is a Abstract. This is a Abstract. 
-              This is a Abstract. This is a Abstract. This is a Abstract. This is a Abstract. This is a Abstract. 
-              This is a Abstract. This is a Abstract. This is a Abstract. This is a Abstract. This is a Abstract. 
-              This is a Abstract. This is a Abstract. This is a Abstract. This is a Abstract. This is a Abstract. 
-              This is a Abstract. This is a Abstract. This is a Abstract. This is a Abstract. This is a Abstract. 
-              This is a Abstract. This is a Abstract. This is a Abstract. This is a Abstract. This is a Abstract. 
-              This is a Abstract. This is a Abstract. This is a Abstract. This is a Abstract. This is a Abstract. 
+              We present <b>Boundless Large Model</b> (BLM<sub>0</sub>), a multimodal spatial foundation model that preserves the native instruction-following and reasoning ability of MLLMs while acquiring effective robotic control. 
+              We formalize three requirements for generalist agents—cross-space transfer (digital→physical), cross-task learning, and cross-embodiment generalization—and instantiate them with a two-stage training pipeline. 
+              Stage I performs supervised fine-tuning on large-scale digital-space understanding and reasoning corpora to inject embodied perception and spatial knowledge without degrading the underlying language capabilities. 
+              Stage II freezes the MLLM backbone and trains a diffusion-based policy head on a self-collected cross-embodiment demonstration suite spanning Franka Emika Panda, xArm-6, xArm-7, and WidowX AI over six increasingly challenging tasks; 
+              demonstrations are generated in ManiSkill to ensure collision-free, time-parameterized trajectories. A simple intent-bridging interface exposes embodiment-agnostic high-level intents from the MLLM to the policy, decoupling reasoning from low-level control. 
+              On our benchmarks, the single set of BLM<sub>0</sub> weights outperforms representative MLLMs, ELLMs, VLA models, and general multimodal large models, improving digital-space reasoning by &sim;<b>6%</b> and physical control by &sim;<b>3%</b> without model switching. 
+              To our knowledge, our evaluation suite is the first to fix task semantics while systematically varying embodiments to assess cross-embodiment generalization.
             </p>
           </div>
         </div>
@@ -204,7 +202,7 @@
 
       <div class="columns is-centered">
         <div class="column is-full-width">
-          <h2 class="title is-4">VLA Benchmarks</h2>
+          <h2 class="title is-4">Robot Benchmarks</h2>
           <div style="text-align: center;">
             <img id="vla" width="90%" src="assets/images/performance/vla.png">
           </div>
@@ -333,7 +331,7 @@
     </div>
     <br>
     <div class="container is-max-desktop">
-      <h2 class="title is-4">Free-Form QA</h2>
+      <h2 class="title is-4">Free-form QA</h2>
       <div style="text-align: center;">
         <img id="free-form_qa" width="90%" src="assets/images/digital-space_demos/free-form_qa.png">
       </div>
