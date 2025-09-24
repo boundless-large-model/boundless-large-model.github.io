@@ -169,13 +169,15 @@
           <h2 class="title is-3">Abstract</h2>
           <div class="content has-text-justified">
             <p>
-              We present <b>Boundless Large Model</b> (BLM<sub>0</sub>), a multimodal spatial foundation model that preserves the native instruction-following and reasoning ability of MLLMs while acquiring effective robotic control. 
-              We formalize three requirements for generalist agents—cross-space transfer (digital→physical), cross-task learning, and cross-embodiment generalization—and instantiate them with a two-stage training pipeline. 
-              Stage I performs supervised fine-tuning on large-scale digital-space understanding and reasoning corpora to inject embodied perception and spatial knowledge without degrading the underlying language capabilities. 
-              Stage II freezes the MLLM backbone and trains a diffusion-based policy head on a self-collected cross-embodiment demonstration suite spanning Franka Emika Panda, xArm-6, xArm-7, and WidowX AI over six increasingly challenging tasks; 
-              demonstrations are generated in ManiSkill to ensure collision-free, time-parameterized trajectories. A simple intent-bridging interface exposes embodiment-agnostic high-level intents from the MLLM to the policy, decoupling reasoning from low-level control. 
-              On our benchmarks, the single set of BLM<sub>0</sub> weights outperforms representative MLLMs, ELLMs, VLA models, and general multimodal large models, improving digital-space reasoning by &sim;<b>6%</b> and physical control by &sim;<b>3%</b> without model switching. 
-              To our knowledge, our evaluation suite is the first to fix task semantics while systematically varying embodiments to assess cross-embodiment generalization.
+              <span style="color: blue;">Multimodal</span> large language models (MLLMs) have demonstrated strong vision-language reasoning and increasingly underpin embodied agents. 
+              However, unified models that simultaneously support tasks in digital and physical spaces and generalize across embodiments remain scarce. 
+              To address this gap, we propose <b>Boundless Large Model (BLM<sub>0</sub>)</b>, a multimodal spatial foundation model that preserves native instruction-following and reasoning while injecting embodied knowledge and enabling robust cross-embodiment control. 
+              BLM<sub>0</sub> unifies three core capabilities: cross-space transfer, cross-task learning, and cross-embodiment generalization, which are realized through a two-stage training recipe. 
+              Stage I uses curated digital corpora to impart embodied knowledge to the MLLM while preserving language abilities. 
+              Stage II trains a policy module via an intent-bridging interface that extracts high-level semantics from the MLLM to guide control, avoiding MLLM fine-tuning. 
+              It uses a self-collected cross-embodiment demonstration suite spanning four robot embodiments and six increasingly challenging tasks.
+              We evaluate BLM<sub>0</sub> as a single model on both digital and physical benchmarks and compare it against four families: Multimodal Large Language Models, Embodied Large Language Models, Vision-Language-Action models, and General Multimodal Large Models. 
+              BLM<sub>0</sub> improves digital-space tasks by approximately <b>6%</b> and physical-space tasks by approximately <b>3%</b>.
             </p>
           </div>
         </div>
@@ -196,12 +198,13 @@
         <div class="column is-full-width">
           <h2 class="title is-4">Digital-Space Benchmarks</h2>
           <div style="text-align: center;">
-            <img id="digital-space" width="90%" src="assets/images/performance/digital-space-no-ref.png">
+            <img width="90%" src="assets/images/performance/digital-space.png">
           </div>
           <div class="content has-text-justified">
             <br>
             <p>
-              <b>Comparison with existing MLLMs and GMLMs on digital-space benchmarks.</b>
+              <span style="color: blue;">Comparison</span> with existing closed/open-source MLLMs, embodied large language
+              models and general multimodal large models on digital-space benchmarks.
             </p>
           </div>
         </div>
@@ -276,8 +279,37 @@
 
   </section>
 
+  <section class="section" style="background-color:#efeff081">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-six-fifths">
+        <h2 class="title is-3">Data Engine</h2>
+      </div>
+    </div>
+
+    <div class="container is-max-desktop">
+      <!-- <h2 class="title is-4">Spatial Reasoning</h2> -->
+      <div style="text-align: center; margin-bottom: 10px;">
+        <img width="100%" src="assets/images/data_engine.png">
+      </div>
+      <div class="content has-text-justified">
+        <br>
+        <p>
+          Our data collection pipeline is built upon the ManiSkill framework and is divided into two main stages: planning and recording. 
+          In the planning stage, we adopt a unified strategy of high-level skills, key-pose guidance and motion planning execution. 
+          Specifically, we first select a sampling task from six predefined robotic manipulation tasks and initialize the corresponding scene. 
+          Next, inspired by the concept of keyframes, each task is decomposed into a series of primitive actions (e.g., approaching, grasping, moving), and a target end-effector pose is generated for each primitive. 
+          For every target pose, we solve the Inverse Kinematics (IK) to obtain joint configurations and perform feasibility checks, including joint limits, self-collision, and environment collision. 
+          If infeasible, resampling or switching to alternative poses is applied. For feasible poses, we conduct path planning and trajectory smoothing before moving to the recording stage. 
+          In the recording stage, the robot executes the task either through joint-space trajectories or end-effector pose tracking, while success is continuously monitored. 
+          If a failure occurs, the system performs fine adjustments or rollback operations; if successful, the relevant states and trajectories are recorded, completing the data collection process.
+        </p>
+      </div>
+    </div>
+
+  </section>
+
   <!-- 演示 -->
-   <section class="section" style="background-color:#efeff081">
+  <section class="section" style="background-color:#ffffffff">
     <div class="columns is-centered has-text-centered">
       <div class="column is-six-fifths">
         <h2 class="title is-3">Digital-Space Demos</h2>
@@ -293,13 +325,19 @@
 
     <div class="container is-max-desktop">
       <div style="text-align: center; margin-bottom: 10px;">
-        <img width="100%" src="assets/images/digital-space_demos/Understanding.svg">
+        <img width="100%" src="assets/images/digital-space_demos/Visual Understanding.svg">
       </div>
     </div>
 
     <div class="container is-max-desktop">
       <div style="text-align: center; margin-bottom: 10px;">
         <img width="100%" src="assets/images/digital-space_demos/embodied.svg">
+      </div>
+    </div>
+
+    <div class="container is-max-desktop">
+      <div style="text-align: center; margin-bottom: 10px;">
+        <img width="100%" src="assets/images/digital-space_demos/Visual Identity.svg">
       </div>
     </div>
   </section>
