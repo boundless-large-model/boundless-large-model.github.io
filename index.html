@@ -243,34 +243,35 @@
         <div class="column is-full-width">
           <div class="content has-text-justified">
             <p>
-              <strong>Backbone.</strong>&emsp;
-              We use the open-source <b>Qwen2.5-VL-7B-Instruct</b> as the MLLM backbone for embodied question answering and reasoning.
+              <centering>
+                <div style="text-align: center;">
+                  <img id="pipeline" width="100%" src="assets/images/architechture.svg">
+                </div>
+              </centering>
+
+              <br>
+
+              <strong>Backbone.</strong>&emsp;We use the open-source <b>Qwen2.5-VL-7B-Instruct</b> as the MLLM backbone for embodied question answering and reasoning.
               Given a sequence of video frames and a text prompt, the model outputs response tokens and multimodal hidden states. 
               We take an intermediate representation from a chosen transformer block as the high-level intent for control.
               
               <br>
               <br>
+
+              <strong>Intent-bridging interface.</strong>&emsp;To effectively bridge high-level intent with low-level control for generalizable policy execution, we design manipulation prompts for the MLLM backbone based on a multi-view historical observation window. 
+              To distill essential control-relevant information from dense intent tokens, we integrate a Perceiver module to compress the high-level intent representation into a version with fixed tokens. 
+              This token compression prioritizes semantic abstraction while also reducing computational overhead, enabling faster processing and supporting high-frequency closed-loop control.
               
-              <strong>Robot policy.</strong>&emsp;
-              For continuous robotic control, we use a <em>Diffusion Transformer (DiT)</em> conditioned on that high-level intent.
+              <br>
+              <br>
+              
+              <strong>Robot policy.</strong>&emsp;For continuous robotic control, we use a <em>Diffusion Transformer (DiT)</em> conditioned on that high-level intent.
               The current proprioceptive state is encoded by a lightweight state encoder.
               We predict a short-horizon chunk of actions; during training we add noise and embed the actions with a lightweight action encoder.
               DiT denoises with interleaved self-attention over state and action embeddings, plus cross-attention to the intent.
               A lightweight action decoder produces the final action chunk for execution.
               To generalize across embodiments, DiT parameters are shared, while the state/action encoders and decoders remain embodiment-specific.
 
-              <centering>
-                <div style="text-align: center;">
-                  <img id="pipeline" width="80%" src="assets/images/example.png">
-                </div>
-              </centering>
-
-              <br>
-              <br>
-              
-              This is a Architecture. This is a Architecture. This is a Architecture. This is a Architecture.
-              This is a Architecture. This is a Architecture. This is a Architecture. This is a Architecture.
-              This is a Architecture.
             </p>
           </div>
         </div>
