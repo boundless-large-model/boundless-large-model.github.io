@@ -156,6 +156,13 @@
   <!-- 抽象 -->
   <section class="section" style="background-color:#ffffffff">
     <div class="container is-max-desktop">
+      <div style="text-align: center;">
+        <img id="overview" width="100%" src="assets/images/overview.png">
+      </div>
+    </div>
+    <br>
+    <br>
+    <div class="container is-max-desktop">
       <div class="columns is-centered has-text-centered">
         <div class="column is-six-fifths">
           <!-- 抽象 -->
@@ -269,54 +276,8 @@
 
   </section>
 
-  <!-- 任务能力 -->
-  <section class="section" style="background-color:#efeff081">
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-six-fifths">
-        <h2 class="title is-3">Task Capabilities</h2>
-      </div>
-    </div>
-    <div class="container is-max-desktop">
-      <div class="columns is-centered">
-        <div class="column is-full-width">
-          <div class="content has-text-justified">
-            <p>
-              <strong>Backbone.</strong>&emsp;
-              We use the open-source <b>Qwen2.5-VL-7B-Instruct</b> as the MLLM backbone for embodied question answering and reasoning.
-              Given a sequence of video frames and a text prompt, the model outputs response tokens and multimodal hidden states. 
-              We take an intermediate representation from a chosen transformer block as the high-level intent for control.
-              
-              <br>
-              <br>
-              
-              <strong>Robot policy.</strong>&emsp;
-              For continuous robotic control, we use a <em>Diffusion Transformer (DiT)</em> conditioned on that high-level intent.
-              The current proprioceptive state is encoded by a lightweight state encoder.
-              We predict a short-horizon chunk of actions; during training we add noise and embed the actions with a lightweight action encoder.
-              DiT denoises with interleaved self-attention over state and action embeddings, plus cross-attention to the intent.
-              A lightweight action decoder produces the final action chunk for execution.
-              To generalize across embodiments, DiT parameters are shared, while the state/action encoders and decoders remain embodiment-specific.
-
-              <centering>
-                <div style="text-align: center;">
-                  <img id="pipeline" width="80%" src="assets/images/example.png">
-                </div>
-              </centering>
-              <br>
-              <br>
-              This is a Architecture. This is a Architecture. This is a Architecture. This is a Architecture.
-              This is a Architecture. This is a Architecture. This is a Architecture. This is a Architecture.
-              This is a Architecture.
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-  </section>
-
   <!-- 演示 -->
-   <section class="section" style="background-color:#ffffffff">
+   <section class="section" style="background-color:#efeff081">
     <div class="columns is-centered has-text-centered">
       <div class="column is-six-fifths">
         <h2 class="title is-3">Digital-Space Demos</h2>
@@ -324,20 +285,17 @@
     </div>
 
     <div class="container is-max-desktop">
-      <h2 class="title is-4">Multiple Choice Question</h2>
+      <!-- <div style="text-align: center; margin-bottom: 10px;">
+        <img id="digital_3" width="90%" src="assets/images/digital-space_demos/image3.svg">
+      </div> -->
       <div style="text-align: center;">
-        <img id="multiple_choice_question" width="90%" src="assets/images/digital-space_demos/demo1.svg">
-      </div>
-    </div>
-    <br>
-    <div class="container is-max-desktop">
-      <h2 class="title is-4">Free-form QA</h2>
-      <div style="text-align: center;">
-        <img id="free-form_qa" width="90%" src="assets/images/digital-space_demos/demo2.svg">
+        <img id="digital_2" width="49%" src="assets/images/digital-space_demos/image2.svg">
+        <img id="digital_1" width="49%" src="assets/images/digital-space_demos/image1.svg">
       </div>
     </div>
   </section>
-  <section class="section" style="background-color:#ffffffff">
+
+  <section class="section" style="background-color:#efeff081">
     <div class="columns is-centered has-text-centered">
       <div class="column is-six-fifths">
         <h2 class="title is-3">Physical-Space Demos</h2>
@@ -483,7 +441,7 @@
   </section>
 
   <!-- 引用 -->
-  <section class="section" id="BibTeX" style="background-color:#efeff081">
+  <section class="section" id="BibTeX" style="background-color:#ffffffff">
     <div class="container is-max-desktop content">
       <h2 class="title">Citation</h2>
       <div class="columns is-centered">
