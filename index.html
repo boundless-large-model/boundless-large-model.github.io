@@ -6,7 +6,7 @@
   <meta name="description" content="Description Description Description">
   <meta name="keywords" content="Keyword Keyword Keyword Keywords">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>BLM-0</title>
+  <title>BLM_1</title>
   
   <link rel="icon" href="https://github-production-user-asset-6210df.s3.amazonaws.com/47669167/330728723-7037290e-f474-4d11-b90f-1d8316087bf8.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20240529%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20240529T072300Z&X-Amz-Expires=300&X-Amz-Signature=d12b9e5c3c49a082747f5da55529a4f1247cd17b4329fafc1cb6d1c0678efa77&X-Amz-SignedHeaders=host&actor_id=23737120&key_id=0&repo_id=721995615">
   
@@ -66,7 +66,7 @@
         <div class="columns is-centered">
           <div class="column has-text-centered">
             <!-- 标题 -->
-            <h1 class="title is-1 publication-title">BLM<sub>0</sub>: A Boundless Model for Cross-Space, Cross-Task, and Cross-Embodiment Learning</h1>
+            <h1 class="title is-1 publication-title">BLM<sub>1</sub>: A Boundless Model for Cross-Space, Cross-Task, and Cross-Embodiment Learning</h1>
             
             <div class="is-size-5 publication-authors">
 
@@ -100,9 +100,9 @@
                 <br>
                 <span class="author-block"><b style="color:#f68946; font-weight:normal">▶ </b> Koala Uran</span>
                 <div class="is-size-6 publication-authors">
-                  <span class="author-block"><b>&dagger;</b> Project leader.</span>
+                  <span class="author-block"><b>&dagger;</b> Project leader</span>
                   &emsp;
-                  <span class="author-block"><b>&diamond;</b> Corresponding author.</span>
+                  <span class="author-block"><b>&diamond;</b> Corresponding author</span>
                 </div>
               </div>
 
@@ -157,7 +157,7 @@
   <section class="section" style="background-color:#ffffffff">
     <div class="container is-max-desktop">
       <div style="text-align: center;">
-        <img id="overview" width="100%" src="assets/images/overview.svg">
+        <img width="100%" src="assets/images/System.png">
       </div>
     </div>
     <br>
@@ -169,15 +169,7 @@
           <h2 class="title is-3">Abstract</h2>
           <div class="content has-text-justified">
             <p>
-              Multimodal large language models (MLLMs) have demonstrated strong vision-language reasoning and increasingly underpin embodied agents. 
-              However, unified models that simultaneously support tasks in digital and physical spaces and generalize across embodiments remain scarce. 
-              To address this gap, we propose <b>Boundless Large Model (BLM<sub>0</sub>)</b>, a multimodal spatial foundation model that preserves native instruction-following and reasoning while injecting embodied knowledge and enabling robust cross-embodiment control. 
-              BLM<sub>0</sub> unifies three core capabilities: cross-space transfer, cross-task learning, and cross-embodiment generalization, which are realized through a two-stage training recipe. 
-              Stage I uses curated digital corpora to impart embodied knowledge to the MLLM while preserving language abilities. 
-              Stage II trains a policy module via an intent-bridging interface that extracts high-level semantics from the MLLM to guide control, avoiding MLLM fine-tuning. 
-              It uses a self-collected cross-embodiment demonstration suite spanning four robot embodiments and six increasingly challenging tasks.
-              We evaluate BLM<sub>0</sub> as a single model on both digital and physical benchmarks and compare it against four families: Multimodal Large Language Models, Embodied Large Language Models, Vision-Language-Action models, and General Multimodal Large Models. 
-              BLM<sub>0</sub> improves digital-space tasks by approximately <b>6%</b> and physical-space tasks by approximately <b>3%</b>.
+              Multimodal large language models (MLLMs) have advanced vision–language reasoning and are increasingly deployed in embodied agents. However, significant limitations remain: MLLMs generalize poorly across digital–physical spaces and embodiments; vision–language–action models (VLAs) produce low-level actions yet lack robust high-level embodied reasoning; and most embodied large language models (ELLMs) are constrained to digital-space with poor generalization to physical world. Thus, unified models that operate seamlessly across digital and physical spaces while generalizing across embodiments and tasks remain absent. We introduce the <b>Boundless Large Model (BLM<sub>1</sub>)</b>, a multimodal spatial foundation model that preserves instruction following and reasoning, incorporates embodied knowledge, and supports robust cross-embodiment control. BLM<sub>1</sub> integrates three key capabilities—<i>cross-space transfer, cross-task learning, and cross-embodiment generalization</i>—via a two-stage training paradigm. Stage I injects embodied knowledge into the MLLM through curated digital corpora while maintaining language competence. Stage II trains a policy module through an intent-bridging interface that extracts high-level semantics from the MLLM to guide control, without fine-tuning the MLLM backbone. This process is supported by a self-collected cross-embodiment demonstration suite spanning four robot embodiments and six progressively challenging tasks. Evaluations across digital and physical benchmarks show that a single BLM<sub>1</sub> instance outperforms four model families—MLLMs, ELLMs, VLAs, and GMLMs—achieving <b>&sim;6%</b> gains in digital tasks and <b>&sim;3%</b> in physical tasks.
             </p>
           </div>
         </div>
@@ -502,8 +494,8 @@
         </div>
       </div>
       <pre><code>@article{
-  BLM-0,
-  title={BLM$_0$: A Boundless Model for Cross-Space, Cross-Task, and Cross-Embodiment Learning},
+  BLM-1,
+  title={BLM$_1$: A Boundless Model for Cross-Space, Cross-Task, and Cross-Embodiment Learning},
   author={WenTao Tan, Bowen Wang, Heng Zhi, Chenyu Liu, Zhe Li, Jian Liu, Zenrong Lin, Yukun Dai, Yipeng Chen, Wenjie Yang, Enci Xie, Hao Xue, Baixu Ji, Chen Xu, Zhibin Wang, Tianshi Wang, Lei Zhu, Hengtao Shen},
   journal={},
   year={2025}
