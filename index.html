@@ -66,7 +66,7 @@
         <div class="columns is-centered">
           <div class="column has-text-centered">
             <!-- 标题 -->
-            <h1 class="title is-1 publication-title">BLM<sub>1</sub>: A Boundless Model for Cross-Space, Cross-Task, and Cross-Embodiment Learning</h1>
+            <h1 class="title is-1 publication-title">BLM<sub>1</sub>: A Boundless Large  Model for Cross-Space, Cross-Task, and Cross-Embodiment Learning</h1>
             
             <div class="is-size-5 publication-authors">
 
@@ -100,9 +100,9 @@
                 <br>
                 <span class="author-block"><b style="color:#f68946; font-weight:normal">▶ </b> Koala Uran</span>
                 <div class="is-size-6 publication-authors">
-                  <span class="author-block"><b>&dagger;</b> Project leader</span>
+                  <span class="author-block"><b>&dagger;</b> Project Leader</span>
                   &emsp;
-                  <span class="author-block"><b>&diamond;</b> Corresponding author</span>
+                  <span class="author-block"><b>&diamond;</b> Corresponding Author</span>
                 </div>
               </div>
 
@@ -195,8 +195,7 @@
           <div class="content has-text-justified">
             <br>
             <p>
-              Comparison with existing closed/open-source MLLMs, embodied large language
-              models and general multimodal large models on digital-space benchmarks.
+              <b>Comparison with existing closed/open-source MLLMs, embodied large language models and general multimodal large models on digital-space benchmarks.</b>
             </p>
           </div>
         </div>
@@ -211,10 +210,7 @@
           <div class="content has-text-justified">
             <br>
             <p>
-              Comparison with existing VLAs on Physical-Space benchmarks. &dagger;  denotes the training of independent
-              models on four robots, with each model evaluated across six tasks. ⋆ denotes training independent
-              models for each of the six tasks associated with four robots (24 models in total), with evaluation on
-              the corresponding tasks for each robot.
+              <b>Comparison with existing VLAs on Physical-Space benchmarks.</b> &dagger;  denotes the training of independent models on four robots, with each model evaluated across six tasks. ⋆ denotes training independent models for each of the six tasks associated with four robots (24 models in total), with evaluation on the corresponding tasks for each robot.
             </p>
           </div>
         </div>
@@ -237,32 +233,13 @@
             <p>
               <centering>
                 <div style="text-align: center;">
-                  <img id="pipeline" width="100%" src="assets/images/architechture.svg">
+                  <img id="pipeline" width="100%" src="assets/images/Framework.png">
                 </div>
               </centering>
 
               <br>
 
-              <strong>Backbone.</strong>&emsp;We use the open-source <b>Qwen2.5-VL-7B-Instruct</b> as the MLLM backbone for embodied question answering and reasoning.
-              Given a sequence of video frames and a text prompt, the model outputs response tokens and multimodal hidden states. 
-              We take an intermediate representation from a chosen transformer block as the high-level intent for control.
-              
-              <br>
-              <br>
-
-              <strong>Intent-bridging interface.</strong>&emsp;To effectively bridge high-level intent with low-level control for generalizable policy execution, we design manipulation prompts for the MLLM backbone based on a multi-view historical observation window. 
-              To distill essential control-relevant information from dense intent tokens, we integrate a Perceiver module to compress the high-level intent representation into a version with fixed tokens. 
-              This token compression prioritizes semantic abstraction while also reducing computational overhead, enabling faster processing and supporting high-frequency closed-loop control.
-              
-              <br>
-              <br>
-              
-              <strong>Robot policy.</strong>&emsp;For continuous robotic control, we use a <em>Diffusion Transformer (DiT)</em> conditioned on that high-level intent.
-              The current proprioceptive state is encoded by a lightweight state encoder.
-              We predict a short-horizon chunk of actions; during training we add noise and embed the actions with a lightweight action encoder.
-              DiT denoises with interleaved self-attention over state and action embeddings, plus cross-attention to the intent.
-              A lightweight action decoder produces the final action chunk for execution.
-              To generalize across embodiments, DiT parameters are shared, while the state/action encoders and decoders remain embodiment-specific.
+              The main framework of BLM<sub>1</sub>. Multimodal inputs are first encoded and fused by a prompt engine, then passed to the MLLM backbone. BLM<sub>1</sub> follows a two-stage training paradigm. In Stage I, the model undergoes supervised fine-tuning on digital-space tasks to acquire embodied knowledge while preserving instruction-following capabilities. Stage II introduces an intent-bridging interface that connects the MLLM to a Diffusion Transformer policy head. This stage is trained using robot states, noisy actions, and a future-prediction loss. The result is <i>a single unified model</i> capable of handling both digital and physical tasks, enabling three boundless capabilities: cross-space transfer, cross-task learning, and cross-embodiment generalization.
 
             </p>
           </div>
@@ -495,7 +472,7 @@
       </div>
       <pre><code>@article{
   BLM-1,
-  title={BLM$_1$: A Boundless Model for Cross-Space, Cross-Task, and Cross-Embodiment Learning},
+  title={BLM$_1$: A Boundless Large Model for Cross-Space, Cross-Task, and Cross-Embodiment Learning},
   author={WenTao Tan, Bowen Wang, Heng Zhi, Chenyu Liu, Zhe Li, Jian Liu, Zenrong Lin, Yukun Dai, Yipeng Chen, Wenjie Yang, Enci Xie, Hao Xue, Baixu Ji, Chen Xu, Zhibin Wang, Tianshi Wang, Lei Zhu, Hengtao Shen},
   journal={},
   year={2025}
