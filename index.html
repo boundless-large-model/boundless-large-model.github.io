@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="Description Description Description">
+  <meta name="keywords" content="Keyword Keyword Keyword Keywords">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>BLM_1</title>
+  
+  <link rel="icon" href="https://github-production-user-asset-6210df.s3.amazonaws.com/47669167/330728723-7037290e-f474-4d11-b90f-1d8316087bf8.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20240529%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20240529T072300Z&X-Amz-Expires=300&X-Amz-Signature=d12b9e5c3c49a082747f5da55529a4f1247cd17b4329fafc1cb6d1c0678efa77&X-Amz-SignedHeaders=host&actor_id=23737120&key_id=0&repo_id=721995615">
+  
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="assets/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js"></script>
+  <script type="module" src="https://gradio.s3-us-west-2.amazonaws.com/3.35.2/gradio.js"></script>
+</head>
+
+<style>
+  .video-container {
+    display: flex;
+    flex-wrap: wrap;
+    /* 自动换行 */
+    gap: 16px;
+    /* 视频之间的间距 */
+    max-width: 1100px;
+    /* 容器最大宽度，可根据需要调整 */
+    margin: 0 auto;
+    /* 居中 */
+  }
+
+  .video-wrapper {
+    flex: 0 0 calc(24% - 8px);
+    /* 每个视频占宽50%，减去间距的一半 */
+    box-sizing: border-box;
+  }
+
+  .video-title {
+    margin-top: 8px;
+    /* 标题和视频之间间距 */
+    font-weight: bold;
+    font-size: 16px;
+    text-align: center;
+  }
+
+  video {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+</style>
+
+<body>
+
+  <!-- 元信息 -->
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <!-- 标题 -->
+            <h1 class="title is-1 publication-title">BLM<sub>1</sub>: A Boundless Large  Model for Cross-Space, Cross-Task, and Cross-Embodiment Learning</h1>
+            
+            <div class="is-size-5 publication-authors">
+
+              <!-- 作者 -->
+              <span class="author-block">
+                <a href="https://scholar.google.com/" style="color:#f68946;font-weight:normal;">Wentao Tan<sup>&dagger;</sup></a>,
+                <a href="https://scholar.google.com/" style="color:#f68946;font-weight:normal;">Bowen Wang</a>,
+                <a href="https://scholar.google.com/" style="color:#f68946;font-weight:normal;">Heng Zhi</a>,
+                <a href="https://scholar.google.com/" style="color:#f68946;font-weight:normal;">Chenyu Liu</a>,
+                <a href="https://scholar.google.com/" style="color:#f68946;font-weight:normal;">Zhe Li</a>,
+                <a href="https://scholar.google.com/" style="color:#f68946;font-weight:normal;">Jian Liu</a>,
+                <a href="https://scholar.google.com/" style="color:#f68946;font-weight:normal;">Zenrong Lin</a>,
+                <br>
+                <a href="https://scholar.google.com/" style="color:#f68946;font-weight:normal;">Yukun Dai</a>,
+                <a href="https://scholar.google.com/" style="color:#f68946;font-weight:normal;">Yipeng Chen</a>,
+                <a href="https://scholar.google.com/" style="color:#f68946;font-weight:normal;">Wenjie Yang</a>,
+                <a href="https://scholar.google.com/" style="color:#f68946;font-weight:normal;">Enci Xie</a>,
+                <a href="https://scholar.google.com/" style="color:#f68946;font-weight:normal;">Hao Xue</a>,
+                <a href="https://scholar.google.com/" style="color:#f68946;font-weight:normal;">Baixu Ji</a>,
+                <a href="https://scholar.google.com/" style="color:#f68946;font-weight:normal;">Chen Xu</a>,
+                <br>
+                <a href="https://scholar.google.com/" style="color:#f68946;font-weight:normal;">Zhibin Wang</a>,
+                <a href="https://scholar.google.com/" style="color:#f68946;font-weight:normal;">Tianshi Wang</a>,
+                <a href="https://scholar.google.com/" style="color:#f68946;font-weight:normal;">Lei Zhu<sup>&dagger;&diamond;</sup></a>,
+                <a href="https://scholar.google.com/" style="color:#f68946;font-weight:normal;">Heng Tao Shen<sup>&diamond;</sup></a>
+              </span>
+
+              <!-- 机构 -->
+              <div class="is-size-5 publication-authors">
+                <span class="author-block"><b style="color:#00d72b; font-weight:normal">▶ </b> School of Computer Science and Technology, Tongji University</span>
+                <br>
+                <span class="author-block"><b style="color:#4646f6; font-weight:normal">▶ </b> Shanghai Magic</span>                
+                <br>
+                <span class="author-block"><b style="color:#f68946; font-weight:normal">▶ </b> Koala Uran</span>
+                <div class="is-size-6 publication-authors">
+                  <span class="author-block"><b>&dagger;</b> Project Leader</span>
+                  &emsp;
+                  <span class="author-block"><b>&diamond;</b> Corresponding Author</span>
+                </div>
+              </div>
+
+              <!-- 链接图标 -->
+              <div class="column has-text-centered">
+                <div class="publication-links">
+                  <!-- <span class="link-block">
+                    <a href="https://arxiv.org/" target="_blank" class="external-link button is-normal is-rounded is-dark">
+                      <span class="icon" style="color:#ffffff">
+                        <i class="ai ai-arxiv"></i>
+                      </span>
+                      <span style="color:#ffffff">arXiv(None)</span>
+                    </a>
+                  </span> -->
+                  <span class="link-block">
+                    <a href="https://github.com/boundless-large-model/BLM-Inference/blob/main/Boundless_Large_Model.pdf" target="_blank" class="external-link button is-normal is-rounded is-dark">
+                      <span class="icon" style="color:#ffffff">
+                        📑
+                      </span>
+                      <span style="color:#ffffff">Paper</span>
+                    </a>
+                  </span>
+                  <span class="link-block">
+                    <a href="https://huggingface.co/BLM-Lab/BLM-Inference" target="_blank"
+                      class="external-link button is-normal is-rounded is-dark">
+                      <span class="icon" style="color:#ffffff">
+                        🤗
+                      </span>
+                      <span style="color:#ffffff">Model</span>
+                    </a>
+                  </span>
+                  <span class="link-block">
+                    <a href="https://github.com/boundless-large-model/BLM-Inference" target="_blank"
+                      class="external-link button is-normal is-rounded is-dark">
+                      <span class="icon" style="color:#ffffff">
+                        <i class="fab fa-github"></i>
+                      </span>
+                      <span style="color:#ffffff">Code</span>
+                    </a>
+                  </span>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+  </section>
+
+  <!-- 抽象 -->
+  <section class="section" style="background-color:#ffffffff">
+    <div class="container is-max-desktop">
+      <div style="text-align: center;">
+        <img width="100%" src="assets/images/System.png">
+      </div>
+    </div>
+    <br>
+    <br>
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-six-fifths">
+          <!-- 抽象 -->
+          <h2 class="title is-3">Abstract</h2>
+          <div class="content has-text-justified">
+            <p>
+              Multimodal large language models (MLLMs) have advanced vision–language reasoning and are increasingly deployed in embodied agents. However, significant limitations remain: MLLMs generalize poorly across digital–physical spaces and embodiments; vision–language–action models (VLAs) produce low-level actions yet lack robust high-level embodied reasoning; and most embodied large language models (ELLMs) are constrained to digital-space with poor generalization to physical world. Thus, unified models that operate seamlessly across digital and physical spaces while generalizing across embodiments and tasks remain absent. We introduce the <b>Boundless Large Model (BLM<sub>1</sub>)</b>, a multimodal spatial foundation model that preserves instruction following and reasoning, incorporates embodied knowledge, and supports robust cross-embodiment control. BLM<sub>1</sub> integrates three key capabilities—<i>cross-space transfer, cross-task learning, and cross-embodiment generalization</i>—via a two-stage training paradigm. Stage I injects embodied knowledge into the MLLM through curated digital corpora while maintaining language competence. Stage II trains a policy module through an intent-bridging interface that extracts high-level semantics from the MLLM to guide control, without fine-tuning the MLLM backbone. This process is supported by a self-collected cross-embodiment demonstration suite spanning four robot embodiments and six progressively challenging tasks. Evaluations across digital and physical benchmarks show that a single BLM<sub>1</sub> instance outperforms four model families—MLLMs, ELLMs, VLAs, and GMLMs—achieving <b>&sim;6%</b> gains in digital tasks and <b>&sim;3%</b> in physical tasks.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 性能 -->
+  <section class="section" style="background-color:#efeff081">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-six-fifths">
+        <h2 class="title is-3">Performance</h2>
+      </div>
+    </div>
+    <div class="container is-max-desktop">
+
+      <div class="columns is-centered">
+        <div class="column is-full-width">
+          <h2 class="title is-4">Digital-Space Benchmarks</h2>
+          <div style="text-align: center;">
+            <img width="90%" src="assets/images/performance/digital-space.png">
+          </div>
+          <div class="content has-text-justified">
+            <br>
+            <p>
+              Comparison with existing closed/open-source MLLMs, embodied large language models and general multimodal large models on digital-space benchmarks.
+            </p>
+          </div>
+
+          <div style="text-align: center;">
+            <img width="90%" src="assets/images/performance/ego_think.png">
+          </div>
+          <div class="content has-text-justified">
+            <br>
+            <p>
+              Comparison with existing MLLMs, ELLMs and GMLMs on EgoThink.
+            </p>
+          </div>
+
+          <div style="text-align: center;">
+            <img width="90%" src="assets/images/performance/share_robot.png">
+          </div>
+          <div class="content has-text-justified">
+            <br>
+            <p>
+              Comparison with existing MLLMs, ELLMs and GMLMs on ShareRobot.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="columns is-centered">
+        <div class="column is-full-width">
+          <h2 class="title is-4">Physical-Space Benchmarks</h2>
+          <div style="text-align: center;">
+            <img id="vla" width="90%" src="assets/images/performance/vla.png">
+          </div>
+          <div class="content has-text-justified">
+            <br>
+            <p>
+              Comparison with existing VLAs on Physical-Space benchmarks. &dagger;  denotes the training of independent models on four robots, with each model evaluated across six tasks. ⋆ denotes training independent models for each of the six tasks associated with four robots (24 models in total), with evaluation on the corresponding tasks for each robot.
+            </p>
+          </div>
+
+          <div style="text-align: center;">
+            <img id="vla" width="90%" src="assets/images/performance/detailed_vla.png">
+          </div>
+          <div class="content has-text-justified">
+            <br>
+            <p>
+              Detailed comparison with existing VLAs on Physical-Space benchmarks.
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 模型架构 -->
+  <section class="section" style="background-color:#ffffffff">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-six-fifths">
+        <h2 class="title is-3">Model Architecture</h2>
+      </div>
+    </div>
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column is-full-width">
+          <div class="content has-text-justified">
+            <p>
+              <centering>
+                <div style="text-align: center;">
+                  <img id="pipeline" width="100%" src="assets/images/Framework.png">
+                </div>
+              </centering>
+
+              <br>
+
+              The main framework of BLM<sub>1</sub>. Multimodal inputs are first encoded and fused by a prompt engine, then passed to the MLLM backbone. BLM<sub>1</sub> follows a two-stage training paradigm. In Stage I, the model undergoes supervised fine-tuning on digital-space tasks to acquire embodied knowledge while preserving instruction-following capabilities. Stage II introduces an intent-bridging interface that connects the MLLM to a Diffusion Transformer policy head. This stage is trained using robot states, noisy actions, and a future-prediction loss. The result is <i>a single unified model</i> capable of handling both digital and physical tasks, enabling three boundless capabilities: cross-space transfer, cross-task learning, and cross-embodiment generalization.
+
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <section class="section" style="background-color:#efeff081">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-six-fifths">
+        <h2 class="title is-3">Multimodal Spatial Data Engine</h2>
+      </div>
+    </div>
+
+    <div class="container is-max-desktop">
+      <!-- <h2 class="title is-4">Spatial Reasoning</h2> -->
+      <div style="text-align: center; margin-bottom: 10px;">
+        <img width="100%" src="assets/images/data_engine.png">
+      </div>
+      <div class="content has-text-justified">
+        <br>
+        <p>
+          Our data collection pipeline is built upon the ManiSkill framework and is divided into two main stages: planning and recording. 
+          In the planning stage, we adopt a unified strategy of high-level skills, key-pose guidance and motion planning execution. 
+          Specifically, we first select a sampling task from six predefined robotic manipulation tasks and initialize the corresponding scene. 
+          Next, inspired by the concept of keyframes, each task is decomposed into a series of primitive actions (e.g., approaching, grasping, moving), and a target end-effector pose is generated for each primitive. 
+          For every target pose, we solve the Inverse Kinematics (IK) to obtain joint configurations and perform feasibility checks, including joint limits, self-collision, and environment collision. 
+          If infeasible, resampling or switching to alternative poses is applied. For feasible poses, we conduct path planning and trajectory smoothing before moving to the recording stage. 
+          In the recording stage, the robot executes the task either through joint-space trajectories or end-effector pose tracking, while success is continuously monitored. 
+          If a failure occurs, the system performs fine adjustments or rollback operations; if successful, the relevant states and trajectories are recorded, completing the data collection process.
+        </p>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- 演示 -->
+  <section class="section" style="background-color:#ffffffff">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-six-fifths">
+        <h2 class="title is-3">Demos</h2>
+      </div>
+    </div>
+    
+    <div class="container is-max-desktop">
+      <div style="text-align: center; margin-bottom: 10px;">
+        <img width="100%" src="assets/images/digital-space_demos/Spatial Perception.png">
+      </div>
+    </div>
+    
+    <div class="container is-max-desktop">
+      <div style="text-align: center; margin-bottom: 10px;">
+        <img width="100%" src="assets/images/digital-space_demos/Embodied Reasoning.png">
+      </div>
+    </div>
+
+    <div class="container is-max-desktop">
+      <!-- <h2 class="title is-4">Spatial Reasoning</h2> -->
+      <div style="text-align: center; margin-bottom: 10px;">
+        <img width="100%" src="assets/images/digital-space_demos/Visual understanding.png">
+      </div>
+    </div>
+    
+    <div class="container is-max-desktop">
+      <div style="text-align: center; margin-bottom: 10px;">
+        <img width="100%" src="assets/images/digital-space_demos/Object ldentification.png">
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="background-color:#ffffffff">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-six-fifths">
+        <h2 class="title is-3">Comparisons</h2>
+      </div>
+    </div>
+    
+    <div class="container is-max-desktop">
+      <div style="text-align: center; margin-bottom: 10px;">
+        <img width="100%" src="assets/images/digital-space_demos/multiple_choice_question.png">
+      </div>
+      <div class="content has-text-justified">
+        <p>
+          Example of results comparison in multiple-choice questions.
+        </p>
+      </div>
+    </div>
+
+    <div class="container is-max-desktop">
+      <div style="text-align: center; margin-bottom: 10px;">
+        <img width="100%" src="assets/images/digital-space_demos/free-form_qa.png">
+      </div>
+      <div class="content has-text-justified">
+        <p>
+          Example of results comparison in free-form QA.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- <section class="section" style="background-color:#efeff081">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-six-fifths">
+        <h2 class="title is-3">Physical-Space Demos</h2>
+      </div>
+    </div>
+
+    <div class="container is-max-desktop">
+      <h2 class="title is-4">Pick Cube</h2>
+      <div class="video-container">
+        <div class="video-wrapper">
+          <video controls src="assets/videos/demo/panda/PickCube.mp4"></video>
+          <div class="video-title">Panda</div>
+        </div>
+        <div class="video-wrapper">
+          <video controls src="assets/videos/demo/widowxai/PickCube.mp4"></video>
+          <div class="video-title">WidowX AI</div>
+        </div>
+        <div class="video-wrapper">
+          <video controls src="assets/videos/demo/xarm6/PickCube.mp4"></video>
+          <div class="video-title">xArm-6</div>
+        </div>
+        <div class="video-wrapper">
+          <video controls src="assets/videos/demo/xarm7/PickCube.mp4"></video>
+          <div class="video-title">xArm-7</div>
+        </div>
+      </div>
+    </div>
+    <br>
+    <br>
+    <div class="container is-max-desktop">
+      <h2 class="title is-4">Push Cube</h2>
+      <div class="video-container">
+        <div class="video-wrapper">
+          <video controls src="assets/videos/demo/panda/PushCube.mp4"></video>
+          <div class="video-title">Panda</div>
+        </div>
+        <div class="video-wrapper">
+          <video controls src="assets/videos/demo/widowxai/PushCube.mp4"></video>
+          <div class="video-title">WidowX AI</div>
+        </div>
+        <div class="video-wrapper">
+          <video controls src="assets/videos/demo/xarm6/PushCube.mp4"></video>
+          <div class="video-title">xArm-6</div>
+        </div>
+        <div class="video-wrapper">
+          <video controls src="assets/videos/demo/xarm7/PushCube.mp4"></video>
+          <div class="video-title">xArm-7</div>
+        </div>
+      </div>
+    </div>
+    <br>
+    <br>
+    <div class="container is-max-desktop">
+      <h2 class="title is-4">Pull Cube</h2>
+      <div class="video-container">
+        <div class="video-wrapper">
+          <video controls src="assets/videos/demo/panda/PullCube.mp4"></video>
+          <div class="video-title">Panda</div>
+        </div>
+        <div class="video-wrapper">
+          <video controls src="assets/videos/demo/widowxai/PullCube.mp4"></video>
+          <div class="video-title">WidowX AI</div>
+        </div>
+        <div class="video-wrapper">
+          <video controls src="assets/videos/demo/xarm6/PullCube.mp4"></video>
+          <div class="video-title">xArm-6</div>
+        </div>
+        <div class="video-wrapper">
+          <video controls src="assets/videos/demo/xarm7/PullCube.mp4"></video>
+          <div class="video-title">xArm-7</div>
+        </div>
+      </div>
+    </div>
+    <br>
+    <br>
+    <div class="container is-max-desktop">
+      <h2 class="title is-4">Stack Cube</h2>
+      <div class="video-container">
+        <div class="video-wrapper">
+          <video controls src="assets/videos/demo/panda/StackCube.mp4"></video>
+          <div class="video-title">Panda</div>
+        </div>
+        <div class="video-wrapper">
+          <video controls src="assets/videos/demo/widowxai/StackCube.mp4"></video>
+          <div class="video-title">WidowX AI</div>
+        </div>
+        <div class="video-wrapper">
+          <video controls src="assets/videos/demo/xarm6/StackCube.mp4"></video>
+          <div class="video-title">xArm-6</div>
+        </div>
+        <div class="video-wrapper">
+          <video controls src="assets/videos/demo/xarm7/StackCube.mp4"></video>
+          <div class="video-title">xArm-7</div>
+        </div>
+      </div>
+    </div>
+    <br>
+    <br>
+    <div class="container is-max-desktop">
+      <h2 class="title is-4">Place Sphere</h2>
+      <div class="video-container">
+        <div class="video-wrapper">
+          <video controls src="assets/videos/demo/panda/PlaceSphere.mp4"></video>
+          <div class="video-title">Panda</div>
+        </div>
+        <div class="video-wrapper">
+          <video controls src="assets/videos/demo/widowxai/PlaceSphere.mp4"></video>
+          <div class="video-title">WidowX AI</div>
+        </div>
+        <div class="video-wrapper">
+          <video controls src="assets/videos/demo/xarm6/PlaceSphere.mp4"></video>
+          <div class="video-title">xArm-6</div>
+        </div>
+        <div class="video-wrapper">
+          <video controls src="assets/videos/demo/xarm7/PlaceSphere.mp4"></video>
+          <div class="video-title">xArm-7</div>
+        </div>
+      </div>
+    </div>
+    <br>
+    <br>
+    <div class="container is-max-desktop">
+      <h2 class="title is-4">Lift Peg Upright</h2>
+      <div class="video-container">
+        <div class="video-wrapper">
+          <video controls src="assets/videos/demo/panda/LiftPegUpright.mp4"></video>
+          <div class="video-title">Panda</div>
+        </div>
+        <div class="video-wrapper">
+          <video controls src="assets/videos/demo/widowxai/LiftPegUpright.mp4"></video>
+          <div class="video-title">WidowX AI</div>
+        </div>
+        <div class="video-wrapper">
+          <video controls src="assets/videos/demo/xarm6/LiftPegUpright.mp4"></video>
+          <div class="video-title">xArm-6</div>
+        </div>
+        <div class="video-wrapper">
+          <video controls src="assets/videos/demo/xarm7/LiftPegUpright.mp4"></video>
+          <div class="video-title">xArm-7</div>
+        </div>
+      </div>
+    </div>
+  </section> -->
+
+  <!-- 引用 -->
+  <section class="section" id="BibTeX" style="background-color:#ffffffff">
+    <div class="container is-max-desktop content">
+      <h2 class="title">Citation</h2>
+      <div class="columns is-centered">
+        <div class="column is-full-width">
+          <div class="content has-text-justified">
+            <p>
+              If you find this project useful, please consider citing our paper.
+            </p>
+          </div>
+        </div>
+      </div>
+      <pre><code>@article{
+  BLM-1,
+  title={BLM$_1$: A Boundless Large Model for Cross-Space, Cross-Task, and Cross-Embodiment Learning},
+  author={Wentao Tan, Bowen Wang, Heng Zhi, Chenyu Liu, Zhe Li, Jian Liu, Zenrong Lin, Yukun Dai, Yipeng Chen, Wenjie Yang, Enci Xie, Hao Xue, Baixu Ji, Chen Xu, Zhibin Wang, Tianshi Wang, Lei Zhu, Heng Tao Shen},
+  year={2025}
+}</code></pre>
+    </div>
+  </section>
+
+  <!-- 致谢 -->
+  <section class="section" id="Acknowledgement">
+    <div class="container is-max-desktop content">
+      <h2 class="title">Acknowledgement</h2>
+      <p>
+        This website is adapted from <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>, licensed under
+        a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+          Commons Attribution-ShareAlike 4.0 International License</a>.
+      </p>
+    </div>
+  </section>
+</body>
+
+</html>
